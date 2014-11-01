@@ -7,6 +7,7 @@
   },
   "dependencies": {},
   "devDependencies": {
-    "express": "*"
+    "express": "*",
+    "body-parser": "*"
   }
 }
