@@ -1,11 +1,15 @@
-sys = require 'sys'
-http = require 'http'
+express = require 'express'
+bodyParser = require('body-parser')
 
-http.createServer((request, response) ->
-  sys.puts 'I got kicked'
-  response.writeHeader 200, {"Content-Type": "text/plain"}
-  response.write 'It works!'
-  response.end()
-).listen 8080
+app = express()
+port = process.env.PORT || 5000
 
-sys.puts 'Listening on port 8080'
+app.use express.static __dirname
+   .use bodyParser.urlencoded {extended: true}
+   .use bodyParser.json()
+
+require('./routes/routes.js')(app)
+
+app.listen(port)
+
+console.log "Listening on port #{port}"
