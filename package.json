@@ -8,6 +8,6 @@
   "dependencies": {},
   "devDependencies": {
     "express": "*",
-    "body-parser": "*"
+    "connect-busboy": "*"
   }
 }
