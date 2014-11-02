@@ -1,12 +1,11 @@
 express = require 'express'
-bodyParser = require('body-parser')
+busyboy = require('connect-busboy')
 
 app = express()
 port = process.env.PORT || 5000
 
 app.use express.static __dirname
-   .use bodyParser.urlencoded {extended: true}
-   .use bodyParser.json()
+   .use busyboy()
 
 require('./routes/routes.js')(app)
 
